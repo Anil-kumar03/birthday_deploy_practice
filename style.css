@@ -1,0 +1,554 @@
+/* General Body and HTML styling */
+body {
+    font-family: 'Quicksand', sans-serif; /* A friendly, clean font for body text */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f7f7; /* Light gray background */
+    color: #333;
+    overflow-x: hidden; /* Prevents horizontal scroll on animations */
+}
+
+/* Common Classes */
+.font-pacifico {
+    font-family: 'Pacifico', cursive; /* Playful font for headings */
+}
+
+.font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.section-padding {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #FF69B4; /* Hot pink */
+    margin-bottom: 40px;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: #FF69B4;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FF69B4;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's on top of the menu */
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger to 'X' animation */
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Hero Banner */
+.hero-banner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align content to the bottom */
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 80px; /* Add some padding from the bottom */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensure content is on top of the overlay */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Photo Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-item {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smoother transition */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05) rotate(2deg); /* Added a slight rotation */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Comments Section */
+.comments-section {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #FF69B4;
+}
+
+input[type="file"] {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #FFC0CB;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #FF69B4;
+    transform: translateY(-2px);
+}
+
+.form-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    text-align: center;
+}
+
+.comments-list {
+    margin-top: 20px;
+    border-top: 1px dashed #ddd;
+    padding-top: 20px;
+}
+
+.comment-item {
+    display: flex;
+    gap: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 5px solid #FFC0CB;
+    transition: transform 0.3s ease;
+}
+
+.comment-item:hover {
+    transform: translateX(5px);
+}
+
+.comment-avatar {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #B0E0E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-content h4 {
+    margin: 0 0 5px;
+    color: #FF69B4;
+}
+
+.comment-content p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.comment-item:hover .comment-actions {
+    opacity: 1;
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.comment-actions button:hover {
+    color: #FF69B4;
+}
+
+/* Edit state for comments */
+.comment-text-editor {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* About Page Specific Styling */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contact Page Specific Styling */
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.location-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+}
+
+.location-icon {
+    width: 50px;
+    height: 50px;
+    color: #B0E0E6; /* Light blue */
+    margin-right: 20px;
+}
+
+.location-text .location-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #555;
+    margin: 0;
+}
+
+.location-text .event-date {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 5px 0 0;
+}
+
+/* Footer */
+footer {
+    background-color: #FFC0CB; /* Pastel pink */
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-weight: 700;
+}
+
+/* ===========================
+    Animations
+=========================== */
+/* Fade In Animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fade-in 1s ease-out forwards;
+    opacity: 0;
+}
+
+.fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Slide In from Top Animation */
+@keyframes slide-in-top {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-top {
+    animation: slide-in-top 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Slide In from Bottom Animation */
+@keyframes slide-in-bottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-bottom {
+    animation: slide-in-bottom 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+
+/* ===========================
+    Responsive Design
+=========================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 60px; /* Position below the navbar */
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        padding: 0; /* Changed to 0 to prepare for max-height transition */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-height: 0; /* Initially hidden */
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        max-height: 200px; /* Adjust to a value large enough to fit all links */
+        padding: 20px 0; /* Add padding back when active */
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comment-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .comment-avatar {
+        margin-bottom: 10px;
+    }
+    .comment-actions {
+        opacity: 1; /* Always show buttons on mobile */
+    }
+}

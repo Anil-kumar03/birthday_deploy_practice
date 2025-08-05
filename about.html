@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Journey</title>
+    <!-- Google Fonts: Pacifico for headings, and a friendly sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .section-title i {
+        animation: bounce 1.2s infinite alternate;
+    }
+    @keyframes bounce {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    .quote {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1.2s forwards;
+        animation-delay: 0.5s;
+        margin-bottom: 1rem;
+    }
+    .quote:nth-child(2) { animation-delay: 1s; }
+    .quote:nth-child(3) { animation-delay: 1.5s; }
+    @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .gallery-item img {
+        transition: transform 0.4s;
+    }
+    .gallery-item img:hover {
+        transform: scale(1.05) rotate(-2deg);
+        box-shadow: 0 4px 16px #ffe0e9;
+    }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">First Birthday</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <main >
+        <!-- About Page Section -->
+        <section class="section-padding slide-in-top">
+            <h2 class="section-title font-pacifico">A Beautiful Journey Begins</h2>
+            <div class="about-content">
+                <!-- Emotional Quotes -->
+                <p class="quote">"A new baby is like the beginning of all things—wonder, hope, a dream of possibilities."</p>
+                <p class="quote">"You are our greatest adventure. Every day with you is a gift."</p>
+                <p class="quote">"The greatest thing in the world is to see the world through a child's eyes."</p>
+            </div>
+        </section>
+
+        <!-- More Photos Section -->
+        <section class="section-padding fade-in">
+            <h2 class="section-title font-pacifico">More Cherished Memories</h2>
+            <div class="gallery-column">
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387222/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.39_8c87f472_qmugq4.jpg" alt="Baby's photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387221/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.37_687e025c_o3xxwy.jpg" alt="Baby's photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dwftttpfi/image/upload/v1754387225/Ritvika%27s%20birthday/WhatsApp_Image_2025-08-05_at_12.33.38_f2740d13_ul4fic.jpg" alt="Baby's photo">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Common Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>Happy First Birthday to my dear ❤️</p>
+            <p>With love from [Parent Names]</p>
+            <p>Location: [Event Venue Name]</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
